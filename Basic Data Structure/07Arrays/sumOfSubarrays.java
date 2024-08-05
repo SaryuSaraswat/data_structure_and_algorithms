@@ -8,17 +8,19 @@ public class sumOfSubarrays{
         int minSum = Integer.MAX_VALUE;
 
         for(int i =0; i<=arr.length - 1; i++){
-            int start =i;
+            
             for(int j =i; j<=arr.length - 1; j++){
-                int end = j;
+                
                 currSum = 0;
-                for(int k = start; k <= end; k++){
+                for(int k = i; k <= j; k++){
                     currSum += arr[k];
                 }
+
                 System.out.println(currSum);
                 if(maxSum < currSum){
                     maxSum = currSum;
                 }
+                
                 if(minSum > currSum){
                     minSum = currSum;
                 }

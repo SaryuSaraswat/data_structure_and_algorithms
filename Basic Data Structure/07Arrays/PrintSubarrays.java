@@ -2,12 +2,13 @@ public class PrintSubarrays{
 
     public static void subArrays(int [] arr){
         for(int i =0; i<arr.length - 1; i++){
-            int start =i;
+
             for(int j =0; j<arr.length - 1; j++){
-                int end = j;
-                for(int k = start; k <= end; k++){
+
+                for(int k = i; k <= j; k++){
                     System.out.print(arr[k] + " ");
                 }
+                
                 System.out.println();
             }
         }
