@@ -6,13 +6,23 @@ import java.util.*;
 public class Q2{
     public static void main(String [] args){
         Scanner sc = new Scanner(System.in);
-        
+        int n = sc.nextInt();
+
         int evenSum = 0;
         int oddSum = 0;
         
-        for( int i = 0; i<5; i++) {
-            System.out.println("Hello");
-            if()
+        while(n > 0){
+            int rem = n % 10;
+            if(rem % 2 == 0){
+                evenSum += rem;
+            }else{
+                oddSum += rem;
+            }
+
+            n = n/10;
         }
+
+        System.out.println("Sum of odd numbers : " + oddSum);
+        System.out.println("Sum of even numbers : " + evenSum);
     }
 }
