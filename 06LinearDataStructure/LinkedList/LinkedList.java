@@ -124,6 +124,56 @@ public class LinkedList{
         return val;
     }
     
+    //linear search
+    public int itrSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp != null){
+            if(temp.data == key){ //key found
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+
+        return -1; //key not found
+    }
+
+    //recursive search
+    public int recursiveSearch(int key){
+        return helper(head, key);
+    }
+    //helper function for recursive search approach
+    public int helper(Node head, int key){
+        if(head == null){ //base case
+            return -1;
+        }
+
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1) return -1;
+
+        return idx+1;
+    }
+
+
+    //reverse a linkedlist
+    public void reverse(){
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+    
 
     //main method
     public static void main(String [] args){
@@ -146,6 +196,8 @@ public class LinkedList{
         ll.print();
 
         System.out.println(ll.size);
+        ll.reverse();
+        ll.print();
         
         ll.removeFirst();
         ll.print();
@@ -154,6 +206,15 @@ public class LinkedList{
         ll.removeLast();
         ll.print();
         System.out.println(ll.size);
+
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(10));
+
+        System.out.println(ll.recursiveSearch(3));
+        System.out.println(ll.recursiveSearch(10));
+
+        ll.reverse();
+        ll.print();
 
     }
 }
